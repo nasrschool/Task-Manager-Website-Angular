@@ -1,0 +1,52 @@
+<div class="outside-container"></div>
+<div class="form-container">
+    <h1>Create task</h1>
+
+    <form class="task-form" aria-label="Formulaire modifier tâche" novalidate>
+    <label>
+        Title
+        <input type="text" name="title" placeholder="enter the title here..." 
+        maxlength="20" [(ngModel)] = "form_task.title"/>
+    </label>
+
+    <label>
+        Description
+        <textarea name="description" rows="4"  placeholder="enter the description here..." 
+        maxlength="200" [(ngModel)] = "form_task.description"></textarea>
+    </label>
+
+    <div class="row">
+        <label>
+        Priority
+        <select name="priority" [(ngModel)] = "form_task.priority">
+            <option value="low" selected>Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option></select>
+        </label>
+        <label>
+        Category
+        <select name="category" [(ngModel)] = "form_task.category">
+            <option value="work" selected>work</option>
+            <option value="school">school</option>
+            <option value="other">other</option></select>
+        </label>
+        <label>
+        Status
+        <select name="status" [(ngModel)] = "form_task.status">
+            <option value="todo" selected>todo</option>
+            <option value="in-progress">in-progress</option>
+            <option value="done">done</option></select>
+        </label>
+
+        <label>
+        Due Date
+        <input type="date" name="dueDate" [(ngModel)] = "form_task.date"/>
+        </label>
+    </div>
+
+    <div class="actions">
+        <button type="button" class="primary" (click)="save()">Save</button>
+        <button type="button" class="secondary" (click)="discard()">Discard</button>
+    </div>
+    </form>
+</div>

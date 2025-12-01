@@ -1,0 +1,49 @@
+<app-task-form 
+  *ngIf="formIsVisible"
+  [form_task]="form_task"
+  (discardEvent)="discard()"
+  (saveEvent)="save()"
+></app-task-form>
+
+<h1 class="title">Task List</h1>
+<div class="filters" role="region" aria-label="filtrage et recherche">
+  <button (click)="addTaskRequest()">Add Task</button>
+  <select aria-label="Filtrer par statut" [(ngModel)] = "statusFilter" >
+    <option value="">Status</option>
+    <option value="todo">To do</option>
+    <option value="in-progress">In Progress</option>
+    <option value="done">Finished</option>
+  </select>
+
+  <select aria-label="Filtrer par priorité" [(ngModel)] = "priorityFilter" >
+    <option value="">Priorities</option>
+    <option value="low">Low</option>
+    <option value="medium">Medium</option>
+    <option value="high">High</option>
+  </select>
+
+  <select aria-label="Filtrer par catégorie" [(ngModel)] = "categoryFilter" >
+    <option value="">Categories</option>
+    <option value="work">work</option>
+    <option value="school">school</option>
+    <option value="others">others</option>
+  </select>
+
+  <input type="search" placeholder="Rechercher..." aria-label="Rechercher" [(ngModel)] = "searchBar"/>
+</div>
+
+
+<div class="task-list" aria-live="polite" *ngIf="visible_task_list.length > 0;else noTasksNotice">
+  <app-task-card  
+    *ngFor="let task of visible_task_list"
+    [task] = "task"
+    (deleteTask)="deleteTask($event)"
+    (modifyTask)="modifyTask($event)"
+  ></app-task-card>
+</div>
+
+<ng-template #noTasksNotice>
+    <p class="empty-state" hidden>
+        No task , please add a task.
+    </p>
+</ng-template>

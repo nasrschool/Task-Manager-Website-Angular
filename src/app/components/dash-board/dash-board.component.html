@@ -1,0 +1,28 @@
+<div class="dashboard">
+  <h1>Tableau de bord</h1>
+
+  <div class="stats-container">
+    <div class="stat-card">
+      <h2>Tasks Total</h2>
+      <p>{{total_tasks_count}}</p>
+    </div>
+
+    <div class="stat-card">
+      <h2>In Progress</h2>
+      <p>{{in_progress_tasks_count}}</p>
+      <progress [value] = "(in_progress_tasks_count / total_tasks_count) * 100" max = "100"></progress>
+    </div>
+
+    <div class="stat-card">
+      <h2>Finished</h2>
+      <p>{{done_tasks_count}}</p>
+      <progress [value] = "(done_tasks_count / total_tasks_count) * 100" max = "100"></progress>
+    </div>
+
+    <div class="stat-card overdue">
+      <h2>Late Tasks</h2>
+      <p>{{late_tasks_count}}</p>
+      <progress [value] = "(late_tasks_count / total_tasks_count) * 100"  max = "100"></progress>
+    </div>
+  </div>
+</div>

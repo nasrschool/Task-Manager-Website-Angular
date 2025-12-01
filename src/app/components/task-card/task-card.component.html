@@ -1,0 +1,27 @@
+<article class="task-card" role="article" aria-label="Carte tâche">
+  <div class="task-header">
+    <div class="title-block">
+      <h3 class="task-title">{{task.title}}</h3>
+      <div class="meta">
+        <small class="due">Due Date : {{task.date}}</small>
+        <small class="category"> {{task.category}} </small>
+        
+      </div>
+    </div>
+
+    <div class="status-priority-container">
+        <div class="status" aria-hidden="true">{{task.status}}</div>
+        <div class="priority" aria-hidden="true">{{task.priority}}</div>
+    </div>
+    
+  </div>
+
+  <div class="task-desc">
+    {{task.description}}
+  </div>
+
+  <div class="task-footer">
+    <button class="edit-btn" aria-label="Modifier" (click)="modifyRequest()">Modifier</button>
+    <button class="delete-btn" aria-label="Supprimer" (click)="deleteRequest()">Supprimer</button>
+  </div>
+</article>
