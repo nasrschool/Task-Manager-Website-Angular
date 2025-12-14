@@ -1,9 +1,0 @@
-<app-dash-board
-  [total_tasks_count]="task_list.length"
-  [in_progress_tasks_count]="in_progress_count"
-  [done_tasks_count]="done_count"
-  [late_tasks_count]="late_count"
-></app-dash-board>
-<app-task-list 
-(task_list_output)="collectTasks($event)"
-></app-task-list>
