@@ -1,0 +1,24 @@
+<h1 class="title">SubTask List</h1>
+<div class="filters" role="region" aria-label="filtrage et recherche">
+  <button (click)="addTaskRequest()">Add Task</button>
+
+</div>
+
+<div class="cluster-list" aria-live="polite">
+
+</div>
+
+<div class="task-list" aria-live="polite" *ngIf="data[cluster_id].length > 0;else noTasksNotice">
+  <app-task-card  
+    *ngFor="let task of data[cluster_id].SubTask"
+    [task] = "task"
+    (deleteTask)="deleteTask($event)"
+    (modifyTask)="modifyTask($event)"
+  ></app-task-card>
+</div>
+
+<ng-template #noTasksNotice>
+    <p class="empty-state" hidden>
+        No task , please add a task.
+    </p>
+</ng-template>

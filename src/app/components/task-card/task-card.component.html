@@ -1,4 +1,4 @@
-<article class="task-card" role="article" aria-label="Carte tâche">
+<article role="article" aria-label="Carte tâche" [ngClass]="getClass">
   <div class="task-header">
     <div class="title-block">
       <h3 class="task-title">{{task.title}}</h3>
@@ -21,6 +21,7 @@
   </div>
 
   <div class="task-footer">
+    <button class="expand-btn" aria-label="Expand" (click)="expandRequest()" *ngIf="isCluster">Expand</button>
     <button class="edit-btn" aria-label="Modifier" (click)="modifyRequest()">Modifier</button>
     <button class="delete-btn" aria-label="Supprimer" (click)="deleteRequest()">Supprimer</button>
   </div>

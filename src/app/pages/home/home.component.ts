@@ -1,22 +1,22 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DashBoardComponent } from './components/dash-board/dash-board.component';
-import { TaskListComponent } from './components/task-list/task-list.component';
-import { TaskFormComponent } from "./components/task-form/task-form.component";
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { Task } from '../tools/task-item';
-import { NgIf, NgForOf } from "@angular/common";
-import { HomeComponent } from './pages/home/home.component';
+import { DashBoardComponent } from './../../components/dash-board/dash-board.component';
+import { TaskListComponent } from './../../components/task-list/task-list.component';
+import { TaskFormComponent } from "./../../components/task-form/task-form.component";
+import { NavbarComponent } from './../../components/navbar/navbar.component';
+import { Task } from '../../../tools/task-item';
+import { NgIf } from "@angular/common";
+
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-home',
   standalone: true,
-  imports: [RouterOutlet,HomeComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  imports: [RouterOutlet, DashBoardComponent, TaskListComponent, TaskFormComponent, NavbarComponent, NgIf],
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss'
 })
 //for now i will have the main data base on app, and give every component that needs it a direct access to it
-export class AppComponent {
+export class HomeComponent {
   title = "something idk";
 
   task_list:Task[] = [];

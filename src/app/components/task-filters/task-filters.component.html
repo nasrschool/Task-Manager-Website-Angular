@@ -1,13 +1,4 @@
-<app-task-form 
-  *ngIf="formIsVisible"
-  [(form_task)]="form_task"
-  (discardEvent)="discard()"
-  (saveEvent)="save()"
-></app-task-form>
-
-<h1 class="title">Task List</h1>
 <div class="filters" role="region" aria-label="filtrage et recherche">
-  <button [ngClass]="{'back-btn':true,'isCluster':isCluster}" (click)="backRequest()">Back</button>
   <button (click)="addTaskRequest()">Add Task</button>
   <select aria-label="Filtrer par statut" [(ngModel)] = "statusFilter" >
     <option value="">Status</option>
@@ -31,20 +22,5 @@
   </select>
 
   <input type="search" placeholder="Rechercher..." aria-label="Rechercher" [(ngModel)] = "searchBar"/>
-  <button (click)="exportData()">export</button>
-</div>
-
-<div class="cluster-list" aria-live="polite">
-
-</div>
-
-<div class="task-list" aria-live="polite" [ngClass]="{'task-list':true,'bordered':isCluster}">
-  <app-task-card  
-    *ngFor="let task of visible_task_list"
-    [task] = "task"
-    (deleteTask)="deleteTask($event)"
-    (modifyTask)="modifyTask($event)"
-    (expandCluster)="expandCluster($event)"
-  ></app-task-card>
 </div>
 

@@ -44,6 +44,15 @@
         <!-- the format for the input that is visually shown is: mm /dd/yyyy 
          while the code format is: yyyy-mm-dd -->
         </label>
+        
+        <label *ngIf="wasCluster === '0';"><!-- cant change Cluster back to task because data will be lost -->
+            Is Cluster:
+            <select name="type" [(ngModel)]="isCluster">
+                <option value="0">False</option>
+                <option value="1">True</option>
+            </select>
+            
+        </label>
     </div>
 
     <div class="actions">
