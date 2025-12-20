@@ -3,6 +3,8 @@ import { FormsModule, NgModel } from '@angular/forms';
 import { Cluster, Task } from '../../../tools/task-item';
 import { CommonModule } from '@angular/common';
 
+// TODO: deal with date value and limit
+
 @Component({
   selector: 'app-task-form',
   standalone: true,
@@ -27,7 +29,6 @@ export class TaskFormComponent implements OnInit{
   }
 
   discard(){
-    console.log("hiding text");
     this.discardEvent.emit();//i aint doing anything with it, but maybe in the future, as cache or something
     this.form_task = new Task("","","","Basse","","");
   }
@@ -41,5 +42,13 @@ export class TaskFormComponent implements OnInit{
     this.form_taskChange.emit(this.form_task);// changes the value of the main form task element in task list
     
     this.saveEvent.emit(); 
+  }
+
+  //currentDate = '2025-12-15';
+  
+  get currentDate():string{
+    let date = new Date(); 
+    let str = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+    return str;
   }
 }

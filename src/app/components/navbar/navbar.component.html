@@ -1,6 +1,16 @@
 <nav class="navbar">
   <h2 class="logo">TaskManager</h2>
 
+  <div class="user-select-wrapper">
+  <select class="user-select" (change)="changeUser($event)">
+    <option value="" disabled selected>Select a user</option>
+    <option value="1">tubby joe shmoe</option>
+    <option value="2">gamma jack</option>
+    <option value="3">osamma bin ladin</option>
+  </select>
+</div>
+  
+
   <!-- ul class="nav-links">
     <li><a routerLink="/dashboard">Dashboard</a></li>
     <li><a routerLink="/tasks">Task List</a></li>

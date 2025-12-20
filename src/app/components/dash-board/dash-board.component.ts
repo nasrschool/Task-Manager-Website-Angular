@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges} from '@angular/core';
 import { Task } from '../../../tools/task-item';
 
 @Component({
@@ -8,16 +8,21 @@ import { Task } from '../../../tools/task-item';
   templateUrl: './dash-board.component.html',
   styleUrl: './dash-board.component.scss'
 })
-export class DashBoardComponent {
-  @Input() total_tasks_count:number = 0;
-  @Input() in_progress_tasks_count:number = 0;
-  @Input() done_tasks_count:number = 0;
-  @Input() late_tasks_count:number = 0;
+export class DashBoardComponent{
+  @Input() total_tasks_count!:number;
+  @Input() in_progress_tasks_count!:number;
+  @Input() done_tasks_count!:number;
+  @Input() late_tasks_count!:number;
 
-  //TODO: search for a reliable way to use the task List as an input for the html of the dash board
+  get in_progress_task_percentage(){
+    return ~~((this.in_progress_tasks_count / this.total_tasks_count) * 100)// ~~ is just for aproximation to an int
+  }
 
-  /*in_progress_tasks = this.task_list.slice();
-  done_tasks = this.task_list?.filter(task=> task.status == "done")
-  late_tasks = this.task_list?.filter(task=> (new Date()).getTime() > (new Date(task.date)).getTime())*/
+  get done_tasks_percentage(){
+    return ~~((this.done_tasks_count / this.total_tasks_count) * 100)
+  }
 
+  get late_tasks_percentage(){
+    return ~~((this.late_tasks_count / this.total_tasks_count) * 100)
+  }
 }
