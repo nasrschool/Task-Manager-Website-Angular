@@ -28,9 +28,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 here are some screenshots of the website being in use:
 
-login page:
+Login page:
 <img width="1901" height="1022" alt="image" src="https://github.com/user-attachments/assets/89ff997d-ae0c-4d5d-96f8-0f9d3df49665" />
 
-home page:
+Home page:
 <img width="1914" height="976" alt="image" src="https://github.com/user-attachments/assets/2e2dad84-131b-433b-9e6d-d3650559fe08" />
 
