@@ -2,11 +2,14 @@
   <h2 class="logo">TaskManager</h2>
 
   <div class="user-select-wrapper">
-  <select class="user-select" (change)="changeUser($event)">
+  <select class="user-select" 
+    (change)="changeUser($event)"
+    [value]="userId"
+    >
     <option value="" disabled selected>Select a user</option>
-    <option value="1">tubby joe shmoe</option>
-    <option value="2">gamma jack</option>
-    <option value="3">osamma bin ladin</option>
+    <option value="1">Tubby Joe Shmoe</option>
+    <option value="2">Gamma Jack</option>
+    <option value="3">Kamar Adin Dibiyaza</option>
   </select>
 </div>
   

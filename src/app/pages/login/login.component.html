@@ -1,0 +1,16 @@
+<div class="login-container">
+  <h2>Login to your Account</h2>
+
+  <form (ngSubmit)="login($event)">
+    <div class="input-group">
+      <input placeholder="enter your username" type="text" [(ngModel)]="username" name="username" required />
+    </div>
+
+    <div class="input-group">
+      <input placeholder = "enter your password" type="password" [(ngModel)]="password" name="password" required />
+    </div>
+
+    <button type="submit">Login</button>
+
+  </form>
+</div>

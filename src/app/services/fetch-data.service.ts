@@ -10,9 +10,14 @@ export class FetchDataService {
 
   getData(userId:string):Task[]{
     let rawData:any = localStorage.getItem(userId);
-    let strData:string = (rawData == null)?(""):(rawData);
+    //let strData:string = (rawData == null)?(""):(rawData);
+    let jsonData:any = [];
 
-    let jsonData:any = JSON.parse(strData).data;
+    console.log(localStorage);
+    if(rawData != null){
+      jsonData = JSON.parse(rawData).data;
+    }
+    
 
     let data:Task[] = [];
     for(let json of jsonData){      

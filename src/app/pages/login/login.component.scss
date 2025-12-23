@@ -1,0 +1,97 @@
+$primary: #1976d2;
+$secondary: #90caf9;
+$danger: #d32f2f;
+$bg: #f4f7fb;
+
+:host {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, $bg, lighten($primary, 40%));
+}
+
+.login-container {
+  width: 380px;
+  padding: 28px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.6s ease;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.input-group {
+  position: relative;
+  margin-bottom: 22px;
+
+  input {
+    width: 93%;
+    padding: 14px 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+
+    &:focus + label,
+    &:not(:placeholder-shown) + label {
+      top: -8px;
+      font-size: 12px;
+      color: $primary;
+    }
+  }
+
+  label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    background: white;
+    padding: 0 6px;
+    color: #777;
+    transition: 0.3s ease;
+    pointer-events: none;
+  }
+}
+.password span {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  opacity: 0.6;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background-color: $primary;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($primary, 10%);
+  }
+}
+h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: $primary;
+}
+text {
+  font-size: 14px;
+  color: #555;
+}
